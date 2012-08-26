@@ -8,17 +8,26 @@ package objects.LD24
 	import net.flashpunk.Sfx;
 	import net.flashpunk.utils.Input;
 	
+	/**
+	 * ...
+	 * @author Philip Ludington
+	 */
 	public class Block extends Entity 
 	{
-		public var image:Image = Image.createRect(40, 40, 0xFFFFFF);
+		public var image:Image;
 		public var clicks:int = 0;
 		public var canClick:Boolean = true;
 		
-		public function Block() 
+		private var speed:Number = 0.01;
+		private var size:int = 40;
+		private var mover:int = 0;
+		
+		public function Block(x:int, y:int) 
 		{
+			image = Image.createRect(size, size, 0xFFFFFF);
 			super(x, y, image);
-			x = FP.halfWidth;
-			y = FP.halfHeight;
+			x = x;
+			y = y;
 			image.centerOrigin();
 			setHitbox(40, 40);
 			centerOrigin();
@@ -26,51 +35,137 @@ package objects.LD24
 		
 		override public function update():void 
 		{
-			if (collidePoint(x, y, Input.mouseX, Input.mouseY))
+			if (LD24.Scored)
+			{
+			}
+			else if( collidePoint(x, y, Input.mouseX, Input.mouseY))			
 			{
 				image.blend = BlendMode.ADD;
 				
 				if (Input.mousePressed && canClick)
 				{
 					canClick = false;
-					clicks ++;
+					LD24.Scored = true;
+					clicks = Mutate();
 					TweenMax.delayedCall(1.0, enable);
-					image.scale = 0.5;
 				}
 			}
 			else
-				image.blend = BlendMode.DIFFERENCE;
+				image.blend = BlendMode.NORMAL;
 			
-			image.color = FP.rand(0xFFFFFF);
-			
-			switch (clicks)
+			if ( mover == 0 )
 			{
-				case 0:
-					move(Input.mouseX, Input.mouseY, 0.1);
-					break;
-				case 1:
-					move(FP.width - Input.mouseX, FP.height - Input.mouseY, 0.1);
-					break;
-				case 2:
-					move(FP.height - Input.mouseY, Input.mouseX, 0.1);
-					break;
-				case 3:
-					move(Input.mouseY, FP.width - Input.mouseX, 0.1);
-					break;
-				case 4:
-					move(Input.mouseY, Input.mouseX, 0.2);
-					break;
-				case 5:
-					move(FP.height - Input.mouseY, FP.width - Input.mouseX, 0.05);
-					break;
-				default:
-					visible = active = collidable = false;
-					trace("Complete!");
-					active = false;
-					break;
+				switch (clicks)
+				{
+					case 0:
+						move(Input.mouseX, Input.mouseY, speed);
+						break;
+					case 1:
+						move(FP.width - Input.mouseX, FP.height - Input.mouseY, speed);
+						break;
+					case 2:
+						move(FP.height - Input.mouseY, Input.mouseX, speed);
+						break;
+					case 3:
+						move(Input.mouseY, FP.width - Input.mouseX, speed);
+						break;
+					case 4:
+						move(Input.mouseY, Input.mouseX, speed);
+						break;
+					case 5:
+						move(FP.height - Input.mouseY, FP.width - Input.mouseX, speed);
+						break;
+					case 7:
+						move(Input.mouseY, Input.mouseX, speed);
+						break;
+					case 8:
+						move(Input.mouseY, Input.mouseX, speed);
+						break;
+					case 9:
+						move(Input.mouseY, Input.mouseX, speed);
+						break;					
+					case 10:
+						if ( x == 0)
+						{
+							moveTowards( FP.screen.width, 
+								0, 
+								FP.rand(40));
+						}
+						else
+						{
+							moveTowards( 0, 
+								0, 
+								FP.rand(40));
+						}
+						break;
+					case 11:
+						moveBy( speed * (FP.rand( 2) * -1), speed * (FP.rand( 2) * -1));					
+						break;
+					case 12:
+						moveTowards( Input.mouseX + 10, 
+							Input.mouseX - 10, 
+							FP.rand(10));						
+						break;
+					default:
+						move(Input.mouseX - 10, Input.mouseY - 10, speed);
+						break;
+				}
 			}
+			else
+			{					
+			
+			}
+			
+			// Keep everything in the box
+			FP.clampInRect( this, 0, 0, FP.width, FP.height, 0 );
 		}
 		
+		public function Mutate():int 
+		{
+			var mutator:int = FP.rand(14);
+			
+			switch (mutator)
+			{
+				case 7:
+					size *= .9;
+					// Create new shape
+					var circle:Image = Image.createCircle(size / 2 , image.color);
+					circle.blend = image.blend;	
+					circle.centerOrigin();
+					
+					// Change ot the new shape
+					image = circle;
+					this.graphic = image;
+					break;
+				case 8:			
+				case 9:
+					image.color = FP.rand(0xFFFFFF);
+					break;
+				case 10:
+					image.alpha = FP.random;
+					break;
+				case 11:
+					speed++;
+				case 12:
+					size *= 1.05;
+					// Create new shape with bigger size
+					var square2:Image = Image.createRect(size, size, 0xFFFFFF);
+					square2.blend = image.blend;	
+					square2.centerOrigin();
+					
+					// Change ot the new shape
+					image = square2;
+					this.graphic = image;
+					break;
+				case 13:
+				default:
+					mover = 1;
+					break;
+				
+			}
+			
+			return mutator;
+		}
 		public function enable():void
 		{
 			canClick = true;
