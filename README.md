@@ -1,38 +1,19 @@
-From src/main.as	
-/**
-	 * ========================================================
-	 * LUDUM DARE 23 KEYNOTE GAMES
-	 * 2012 (c) Chevy Ray Johnston
-	 * ========================================================
-	 * 
-	 * These games are made with FlashPunk, a game engine which
-	 * is freely available for you to use! Check it out at:
-	 * 
-	 * flashpunk.net
-	 * flashpunk.net/learn
-	 * flashpunk.net/forums
-	 * 
-	 * You are totally free to use any of the code in this in
-	 * your games! So enjoy :) hope some of it is helpful!
-	 * 
-	 * ========================================================
-	 * INSTRUCTIONS
-	 * ========================================================
-	 * 
-	 * I just put all 9 of the games in one source, to make it
-	 * simpler to distribute! Each game's objects are in its own
-	 * folder (eg. objects/dungeon, objects/racing). The versions
-	 * with "3" at the end are the improved ones with graphics!
-	 * 
-	 * To switch games, just change the current FlashPunk "world",
-	 * in the code below, I've commented out the other games, so
-	 * just switch which line is uncommented to try out the others.
-	 * 
-	 * If you have any questions about this, feel free to email me:
-	 * 
-	 * happytrash@gmail.com
-	 * 
-	 * ========================================================
-	 * 
-	 * Break a leg, jammers!
-	 */
+LD24
+====
+
+LD24 is MrPhil's Ludum Dare 24 entry.
+
+Ludum Dare is a 48 hour game development contest, see http://LudumDare.com
+
+Start: 8/24/2012 10 PM EST
+
+End: 8/26/2010 10 PM EST 
+
+Theme: Evolution
+
+Dev Log: http://www.ludumdare.com/compo/author/mrphil/ Source:  
+
+
+*All Rights Reserved. Copyright 2012 Philip J. Ludington*
+
+Based on code from https://github.com/MrPhil/Ludum-Dare-23-Keycode-Games, which is licensed separtely from this code.
