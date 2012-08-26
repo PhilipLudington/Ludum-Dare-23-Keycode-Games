@@ -16,4 +16,4 @@ Dev Log: http://www.ludumdare.com/compo/author/mrphil/ Source:
 
 *All Rights Reserved. Copyright 2012 Philip J. Ludington*
 
-Based on code from https://github.com/MrPhil/Ludum-Dare-23-Keycode-Games, which is licensed separtely from this code.
+Based on code from https://github.com/MrPhil/Ludum-Dare-23-Keycode-Games, which is licensed separtely from this code.  See the Tag Chevy-Ray's-Release-Code.
