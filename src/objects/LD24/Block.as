@@ -116,8 +116,8 @@ package objects.LD24
 			
 			}
 			
-			// Keep everything in the box
-			FP.clampInRect( this, 0, 0, FP.width, FP.height, 0 );
+			// Wrap
+			Reuse.Wrap(this);
 		}
 		
 		public function Mutate():int 
