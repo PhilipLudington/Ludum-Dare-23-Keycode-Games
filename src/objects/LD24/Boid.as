@@ -44,21 +44,21 @@ package objects.LD24
 			var vx:Number;
 			if ( FP.random > 0.5 )
 			{
-				vx = 2 * FP.random + 0.1
+				vx = 3 * FP.random + 0.1
 			}
 			else
 			{
-				vx = -2 * FP.random + 0.1
+				vx = -3 * FP.random + 0.1
 			}
 			
 			var vy:Number;
 			if ( FP.random > 0.5 )
 			{
-				vy = 2 * FP.random + 0.1
+				vy = 3 * FP.random + 0.1
 			}
 			else
 			{
-				vy = -2 * FP.random + 0.1
+				vy = -3 * FP.random + 0.1
 			}
 			
 			velocity = new Vector2(	vx, vy );
@@ -72,7 +72,8 @@ package objects.LD24
 			
 			Wrap(this);
 			
-			velocity = velocity.Add(acceleration).Limit(MAX_SPEED);
+			velocity = velocity.Add(acceleration)
+			velocity = velocity.Limit(MAX_SPEED);
 			location = location.Add(velocity);		
 			x = location.x;
 			y = location.y;
@@ -124,7 +125,7 @@ package objects.LD24
 					var distance:Number = vector.Distance(neighbor.vector);
 					if ( distance > 0 && distance < NEIGHBOUR_RADIUS)
 					{
-						sum += neighbor;
+						sum = sum.Add(neighbor.vector);
 						
 						count++;
 					}

@@ -23,9 +23,7 @@ package objects.LD24
 		
 		public function Magnitude():Number
 		{
-			return Math.sqrt( 
-				x * x 
-				+ y * y );
+			return Math.sqrt( x * x + y * y );
 		}
 		
 		public function Normalize():Vector2
