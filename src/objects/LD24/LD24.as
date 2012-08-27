@@ -25,12 +25,23 @@ package objects.LD24
 		private var Score:int = 0;
 		
 		public function LD24() 
-		{
+		{		
+			var vector:Vector2 = new Vector2(0,0);
+			
 			Background2.blend = BlendMode.ADD;
 			addGraphic(Background1, 10);
 			addGraphic(Background2, 9);
 			switchBg();
 			
+			SpawnBlock();
+			SpawnBlock();
+			SpawnBlock();
+			SpawnBlock();
+			SpawnBlock();
+			SpawnBlock();
+			SpawnBlock();
+			SpawnBlock();
+			SpawnBlock();
 			SpawnBlock();
 			SpawnBlock();
 			SpawnBlock();

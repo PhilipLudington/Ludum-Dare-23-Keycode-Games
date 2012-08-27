@@ -39,9 +39,7 @@ package objects.LD24
 			{
 			}
 			else if( collidePoint(x, y, Input.mouseX, Input.mouseY))			
-			{
-				image.blend = BlendMode.ADD;
-				
+			{				
 				if (Input.mousePressed && canClick)
 				{
 					canClick = false;
@@ -159,13 +157,17 @@ package objects.LD24
 					break;
 				case 13:
 				default:
-					mover = 1;
-					break;
-				
+			FP.console.log( "Build boid");
+					var boid:Boid = new Boid(x, y);
+					
+					FP.world.add(boid);
+					FP.world.remove(this);
+					break;				
 			}
 			
 			return mutator;
 		}
+		
 		public function enable():void
 		{
 			canClick = true;
