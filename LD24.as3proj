@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\LudumDareKeynote.swf" />
+    <movie path="bin\MrPhil's LD24.swf" />
     <movie fps="30" />
     <movie width="800" />
     <movie height="600" />

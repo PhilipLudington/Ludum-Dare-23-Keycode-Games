@@ -4,7 +4,6 @@ package
 	import net.flashpunk.FP;
 	import net.flashpunk.World;
 	import objects.LD24.LD24;
-	import objects.weird.Weird;
 	
 	public class Main extends Engine 
 	{
