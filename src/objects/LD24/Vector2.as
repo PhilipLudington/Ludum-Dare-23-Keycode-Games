@@ -17,11 +17,7 @@ package objects.LD24
 		
 		public function Distance(v:Vector2):Number
 		{
-			return Math.sqrt( 
-				Math.pow(v.x - x, 2)
-				+
-				Math.pow(v.y - y, 2)
-				);
+			return Math.sqrt( Math.pow(v.x - x, 2) + Math.pow(v.y - y, 2) );
 				
 		}
 		

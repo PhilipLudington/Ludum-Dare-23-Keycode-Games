@@ -40,9 +40,28 @@ package objects.LD24
 			setHitbox(6, 6);
 			centerOrigin();
 			location = new Vector2(x, y);
-			velocity = new Vector2( 
-				3 * ( -1 * FP.random) + 0.1, 
-				3 * ( -1 * FP.random) * FP.random + 0.1);
+			
+			var vx:Number;
+			if ( FP.random > 0.5 )
+			{
+				vx = 2 * FP.random + 0.1
+			}
+			else
+			{
+				vx = -2 * FP.random + 0.1
+			}
+			
+			var vy:Number;
+			if ( FP.random > 0.5 )
+			{
+				vy = 2 * FP.random + 0.1
+			}
+			else
+			{
+				vy = -2 * FP.random + 0.1
+			}
+			
+			velocity = new Vector2(	vx, vy );
 			
 			neighbours.push(this);
 		}
